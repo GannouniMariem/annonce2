@@ -62,12 +62,20 @@ Route::group(['middleware'=>['api']], function(){
 
 
         Route::group(['prefix'=>'favoris'],function(){
-            
+
             Route::get('/{id}','ControllerFavoris@index');
             Route::post('add','ControllerFavoris@create');
             Route::delete('delete/{id}','ControllerFavoris@destroy');
             Route::delete('deletebyuser/{id}','ControllerFavoris@destroyByIdUser');
             Route::get('show/{id}','ControllerFavoris@show');
+                 
+        });
+
+        Route::group(['prefix'=>'commande'],function(){
+            
+            Route::get('/{id}','ControllerCommande@index');
+            Route::post('add','ControllerCommande@create');
+            Route::delete('delete/{id}','ControllerCommande@destroy');
                 
             
         });
