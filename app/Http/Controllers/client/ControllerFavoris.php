@@ -4,44 +4,42 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use App\Http\Traits\GeneralTrait;
-use App\Models\annonce;
-use App\Models\client;
-use App\Models\panier;
+use App\Models\favoris;
 use Illuminate\Http\Request;
 
-class ControllerPanier extends Controller
+class ControllerFavoris extends Controller
 {
     use GeneralTrait;
 
     public function index($id)
     {
-        $panier = panier::get()->where('id_user',$id);
+        $favoris = favoris::get()->where('id_user',$id);
 
-        return response()->json($panier);
+        return response()->json($favoris);
     }
 
 
 
     public function create(Request $request)
     {
-        $panier = new panier();
+        $favoris = new favoris();
         
-        $panier->id_annonce = $request->input('id_annonce');
-        $panier->id_user = $request->input('id_user');
-        $panier->date = $request->input('date');
+        $favoris->id_annonce = $request->input('id_annonce');
+        $favoris->id_user = $request->input('id_user');
+        $favoris->date = $request->input('date');
        
-        $panier->save();
+        $favoris->save();
 
-        return response()->json($panier);
+        return response()->json($favoris);
 
     }
 
 
     public function show($id)
     {
-        $panier = panier::find($id);
+        $favoris = favoris::find($id);
 
-        return response()->json($panier);
+        return response()->json($favoris);
     }
 
 
@@ -56,8 +54,8 @@ class ControllerPanier extends Controller
 
     public function destroy($id)
     {
-        $panier = panier::find($id);
-        $panier->delete();
+        $favoris = favoris::find($id);
+        $favoris->delete();
 
         return $this->retournSuccessMessage('successfuly deleted');
 
@@ -66,7 +64,7 @@ class ControllerPanier extends Controller
     
     public function destroyByIdUser($id)
     {
-        panier::where('id_user', $id)->delete();
+        favoris::where('id_user', $id)->delete();
 
         return $this->retournSuccessMessage('successfuly deleted');
 

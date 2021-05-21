@@ -87,6 +87,8 @@ class ControllerImmobilier extends Controller
     {
         $immobiler = immobilier::find($id);
         $immobiler->delete();
+        
+        return $this->retournSuccessMessage('successfuly deleted');
 
     }
 }

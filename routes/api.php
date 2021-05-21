@@ -48,6 +48,29 @@ Route::group(['middleware'=>['api']], function(){
                 
             
         });
+
+        Route::group(['prefix'=>'panier'],function(){
+            
+            Route::get('/{id}','ControllerPanier@index');
+            Route::post('add','ControllerPanier@create');
+            Route::delete('delete/{id}','ControllerPanier@destroy');
+            Route::delete('deletebyuser/{id}','ControllerPanier@destroyByIdUser');
+            Route::get('show/{id}','ControllerPanier@show');
+                
+            
+        });
+
+
+        Route::group(['prefix'=>'favoris'],function(){
+            
+            Route::get('/{id}','ControllerFavoris@index');
+            Route::post('add','ControllerFavoris@create');
+            Route::delete('delete/{id}','ControllerFavoris@destroy');
+            Route::delete('deletebyuser/{id}','ControllerFavoris@destroyByIdUser');
+            Route::get('show/{id}','ControllerFavoris@show');
+                
+            
+        });
     
     });
 });

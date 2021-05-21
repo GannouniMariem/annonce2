@@ -105,6 +105,8 @@ class ControllerClient extends Controller
         $client = client::find($id);
         $client->delete();
 
+        return $this->retournSuccessMessage('successfuly deleted');
+
     }
 
 }

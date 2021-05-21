@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnnoncesTable extends Migration
+class CreateFavorisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateAnnoncesTable extends Migration
      */
     public function up()
     {
-        Schema::create('annonces', function (Blueprint $table) {
-           
+        Schema::create('favoris', function (Blueprint $table) {
             $table->id();
-            $table->string('titre');
-            $table->timestamps();
+            $table->integer('id_annonce');
+            $table->integer('id_user');
+            $table->string('date');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateAnnoncesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('annonces');
+        Schema::dropIfExists('favoris');
     }
 }

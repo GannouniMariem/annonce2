@@ -17,7 +17,7 @@ class CreatePaniersTable extends Migration
             $table->id();
             $table->integer('id_annonce');
             $table->integer('id_user');
-            $table->date('date');
+            $table->string('date');
         });
     }
 
