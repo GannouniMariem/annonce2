@@ -38,6 +38,7 @@ class ControllerImmobilier extends Controller
         $immobiler->type_offre = $request->input('type_offre');
         $immobiler->nbr_chambre = $request->input('nbr_chambre');
         $immobiler->disponibilite = $request->input('disponibilite');
+        $immobiler->id_user = $request->input('id_user');
        
         $immobiler->save();
 

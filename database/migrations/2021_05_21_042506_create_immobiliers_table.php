@@ -24,6 +24,8 @@ class CreateImmobiliersTable extends Migration
             $table->string('surface');
             $table->string('type_offre');
             $table->integer('nbr_chambre');
+            $table->integer('id_user');
+
             $table->string('disponibilite');
             
         });

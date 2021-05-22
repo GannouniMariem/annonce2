@@ -75,10 +75,16 @@ Route::group(['middleware'=>['api']], function(){
             
             Route::get('/{id}','ControllerCommande@index');
             Route::post('add','ControllerCommande@create');
-            Route::delete('delete/{id}','ControllerCommande@destroy');
-                
-            
+            Route::delete('delete/{id}','ControllerCommande@destroy'); 
         });
     
+        Route::group(['prefix'=>'banne'],function(){
+            
+            Route::get('bloque/{id}','ControllerBanne@getByid_bloque');
+            Route::get('bloqueur/{id}','ControllerBanne@getByid_bloqueur');
+            Route::post('add','ControllerBanne@create');
+            Route::delete('delete/{id}','ControllerBanne@destroy');
+                
+        });
     });
 });

@@ -21,6 +21,8 @@ class CreateMobiliersTable extends Migration
             $table->string('photo');
             $table->string('type_m');
             $table->string('etat');
+            $table->integer('id_user');
+
 
         });
     }

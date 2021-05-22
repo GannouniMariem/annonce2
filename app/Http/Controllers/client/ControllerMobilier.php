@@ -32,6 +32,7 @@ class ControllerMobilier extends Controller
         $Mobilier->photo = $file_name;
         $Mobilier->type_m = $request->input('type_m');
         $Mobilier->etat = $request->input('etat');
+        $Mobilier->id_user = $request->input('id_user');
        
         $Mobilier->save();
 
@@ -77,6 +78,7 @@ class ControllerMobilier extends Controller
     {
         $Mobilier = mobilier::find($id);
         $Mobilier->delete();
+        return $this->retournSuccessMessage('successfuly deleted');
 
     }
 
